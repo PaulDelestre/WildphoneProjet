@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Ajouter une nouvel objet</h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="object">Objet</label>
+        <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+    <a href="/color/index">Retour</a>
+{% endblock %}

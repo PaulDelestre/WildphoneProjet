@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Images - Ajouter
+{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+{% block content %}
+	<div class="container container-admin">
+		<a href="/image/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+		<h1>Ajouter une nouvelle image</h1>
+		<form method="post">
+			<div class="form-group">
+				<label for="name">URL</label>
+				<input type="text" name="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">
+			</div>
+			<div class="form-group">
+				<label for="price">Article ID</label>
+				<select name="article_id" id="article-select">
+					{% for article in articles %}
+					<option value="{{article.id}}">{{article.name}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<a href="/image/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+			<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+		</form>
+	</div>
+{% endblock %}
+

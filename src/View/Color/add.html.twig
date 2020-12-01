@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Couleurs - Ajouter
+{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+
+{% block content %}
+	<div class="container container-admin">
+		<a href="/color/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+		<h1>Ajouter une nouvelle couleur</h1>
+		<form method="post">
+			<div class="form-group center-form">
+				<label for="color">Couleur</label>
+				<input type="text" name="name" class="form-control col-8 center-form" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">
+			</div>
+			<a href="/color/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+			<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+		</form>
+	</div>
+</div>{% endblock %}

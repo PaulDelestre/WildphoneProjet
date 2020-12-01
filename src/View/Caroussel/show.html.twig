@@ -1,0 +1,28 @@
+
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12">
+        <div class="card m-auto ">
+            <div class="card-body ">
+                <a href="/caroussel/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+				<p class="card-text">#{{caroussel.id}}</p> 
+                <h1 class="card-text">{{caroussel.name}}</h1>
+				<div class="text-center">
+					<img src="{{ caroussel.url }}" class="img-fluid center-block" width="50%">
+				</div>   
+            </div>
+            <div class="card-footer text-center">
+                <a href="/caroussel/edit/{{ caroussel.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+                <a href="/caroussel/delete/{{ caroussel.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a> 
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}
+

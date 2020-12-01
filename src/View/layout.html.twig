@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="/assets/css/nav.css">
+	<link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/home.css">
+	<link rel="stylesheet" href="/assets/css/admin.css">
+
+    {% block stylesheet %}{% endblock %}
+    <link rel="icon" href="/assets/images/favicon.ico">
+</head>
+<body>
+  <header class="section-header">
+    <section class="header-main border-bottom">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-sm-4 col-md-4 col-5"> <a href="#" class="brand-wrap" data-abc="true">
+                        <a href="\"> <span class="logo"><img src="https://www.zupimages.net/up/20/46/gd8a.png" class="logo"></span> </a> </div>
+                <div class="col-lg-4 col-xl-5 col-sm-8 col-md-4 d-none d-md-block">
+                    <form method="post" action ="/telephone/index" class="search-wrap">
+                        <div class="input-group w-100"> <input type="text" name="search" class="form-control search-form" style="width:55%;" placeholder="Rechercher...">
+                            <div class="input-group-append"> <button class="btn search-button" type="submit"> <i class="fa fa-search"></i> </button> </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-lg-5 col-xl-4 col-sm-8 col-md-4 col-7">
+                    <div class="d-flex justify-content-end space-icon ">
+							{% if session.cart %}
+							<div class="btn-group" role="group" aria-label="Basic example">
+								<a href="/panier/index/{{ user.id }}" class="navbar-link"><i class="fas fa-cart-arrow-down cart-nav"></i><span class="badge badge-danger">{{ session.count }}</span></a>	
+							</div>
+							{% else %}	
+								<a href="/panier/index" class="navbar-link" ><i class="fas fa-cart-arrow-down cart-nav"></i></a>
+							{% endif %}
+							{% if session.name is defined %}
+								<a href="/security/show/{{session.id}}" class="navbar-link"><i class="fas fa-user white"></i></a>					
+							{% else %}
+								<a href="/security/login/" class="navbar-link"><i class="fas fa-user white"></i></a>
+							{% endif %}
+							{% if session.name is defined %}
+								<a href="/security/logout" class="navbar-link"><i class="fas fa-sign-out-alt white"></i></a>
+							{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <nav class="navbar navbar-expand-md navbar-main border-bottom ">
+        <div class="container-fluid  ">
+            <form class="d-md-none my-2 ">
+                <div class="input-group "> <input type="search" name="search" class="form-control" placeholder="Rechercher..." required="">
+                    <div class="input-group-append"> <button type="submit" class="btn btn-secondary"> <i class="fa fa-search"></i> </button> </div>
+                </div>
+            </form> <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#dropdown6" aria-expanded="false"> <span class="navbar-toggler-icon"></span> </button>
+            <div class="navbar-collapse collapse" id="dropdown6">
+                <ul class="navbar-nav mr-auto">
+					{% if session.role  == 1 %}
+					<li class="nav-item"> <a class="nav-link admin-nav" href="\" data-abc="true">ACCUEIL</a> </li>
+                    <li class="nav-item"> <a class="nav-link admin-nav" href="/Telephone/index/" data-abc="true">TELEPHONES</a> </li>
+                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle admin-nav" href="" data-toggle="dropdown" data-abc="true" aria-expanded="false">ADMIN</a>
+                        <div class="dropdown-menu" > 
+                           <a class="dropdown-item admin-nav" href="\article/index" data-abc="true">ARTICLES</a> 
+                           <a class="dropdown-item admin-nav" href="\brand/index" data-abc="true">MARQUES</a>
+                           <a class="dropdown-item admin-nav" href="\model/index" data-abc="true">MODÈLES</a>
+                           <a class="dropdown-item admin-nav" href="\color/index" data-abc="true">COULEURS</a> 
+                           <a class="dropdown-item admin-nav" href="\image/index" data-abc="true">IMAGES</a>
+                           <a class="dropdown-item admin-nav" href="\comment/index" data-abc="true">COMMENTAIRES</a>
+                           <a class="dropdown-item admin-nav" href="\purchase/index" data-abc="true">COMMANDES</a> 
+                           <a class="dropdown-item admin-nav" href="\invoice/index" data-abc="true">FACTURATION</a>
+						   <a class="dropdown-item admin-nav" href="\user/index" data-abc="true">UTILISATEURS</a>
+						   <a class="dropdown-item admin-nav" href="\caroussel/index" data-abc="true">CAROUSSEL</a>  
+                          </div>
+					</li>
+					{% elseif session.role  == 2 %}
+					<li class="nav-item"> <a class="nav-link admin-nav" href="\" data-abc="true">ACCUEIL</a> </li>
+                    <li class="nav-item"> <a class="nav-link admin-nav" href="/Telephone/index/" data-abc="true">TELEPHONES</a> </li>
+					<li class="nav-item nav-link title-montserrat">Bienvenue {{session.firstname}} {{session.lastname}} </li>
+					{% else %}
+                    <li class="nav-item"> <a class="nav-link admin-nav" href="\" data-abc="true">ACCUEIL</a> </li>
+                    <li class="nav-item"> <a class="nav-link admin-nav" href="/Telephone/index/" data-abc="true">TELEPHONES</a> </li>
+					{% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav margin">
+			<li class="nav-model active">
+				<a class="nav-link white" href="\home/index">ACCUEIL
+					<span class="sr-only">(current)</span>
+				</a>
+			</li>
+			<li class="nav-model">
+				<a class="nav-link white" href="\telephone/index">TELEPHONES</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  ADMIN
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				  <a class="dropdown-item" href="\admin/index">Accueil</a>
+				  <a class="dropdown-item" href="\article/index">Articles</a>
+				  <a class="dropdown-item" href="\brand/index">Marques</a>
+				  <a class="dropdown-item" href="\color/index">Couleurs</a>
+				  <a class="dropdown-item" href="\comment/index">Commentaires</a>
+				  <a class="dropdown-item" href="\image/index">Images</a>
+				  <a class="dropdown-item" href="\invoice/index">Facturation</a>
+				  <a class="dropdown-item" href="\model/index">Modèles</a>
+				  <a class="dropdown-item" href="\purchase/index">Commandes</a>
+				  <a class="dropdown-item" href="\user/index">Utilisateurs</a>
+				</div>
+			  </li>
+		</ul>
+	</div>
+{% block content %}{% endblock %}
+<footer>
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-4 footer-column">
+		  <ul class="nav flex-column">
+			<li class="nav-item">
+			  <span class="footer-title">Des Questions ?</span>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link white footer-link" href="faq.php">FAQ</a>
+			</li>
+			<li class="nav-item white">
+			  <a class="nav-link white footer-link" href="contact.php">Nous contacter</a>
+			</li>
+		  </ul>
+		</div>
+		<div class="col-md-4 footer-column">
+		  <ul class="nav flex-column">
+			<li class="nav-item">
+			  <span class="footer-title">Nos partenaires</span>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link white footer-link" href="https://www.backmarket.fr/">Back Market</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link white footer-link" href="https://www.apple.com/fr/">Apple</a>
+			</li>
+		  </ul>
+		</div>
+		<div class="col-md-4 footer-column">
+		  <ul class="nav flex-column">
+			<li class="nav-item">
+			  <span class="footer-title">Support</span>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link white footer-link" href="#"></i>Mentions légales</a>
+			</li>
+		  </ul>
+		</div>
+	  </div> 
+	  <div class="row text-center">
+		<div class="col-md-4 box">
+		  </div>
+		  <div class="col-md-4 box">
+			  <span class="copyright quick-links">Copyright &copy; Wildphone
+				<script>document.write(new Date().getFullYear())</script>
+			  </span>
+		</div>
+	  </div>
+	</div>
+  </footer>
+{% block javascript %}{% endblock %}
+<script type="text/javascript" src="/assets/js/nav.js"></script>
+<script src="https://kit.fontawesome.com/eacfbebdea.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/e31b19310d.js"></script>
+</body>
+</html>
+
+

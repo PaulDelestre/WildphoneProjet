@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Factures - Ajouter
+{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+{% block content %}
+
+	<div class="container container-admin">
+		<a href="/invoice/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+		<h1>Ajouter un nouveau commentaire</h1>
+		<h1>Ajouter une facture</h1>
+		<form method="post">
+			<div class="form-group">
+				<label for="purchase_id">Référence de la facture :</label>
+				<input type="text" name="purchase_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ invoice.article_name }}" required="require">
+			</div>
+			<div class="form-group">
+				<label for="article_id">ID Article :</label>
+				<input type="text" name="article_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ article.price }}" required="require">
+			</div>
+			<div class="form-group">
+				<label for="quantity">Quantité :</label>
+				<input type="text" name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ invoice.quantity }}" required="require">
+
+				<div class="form-group">
+					<label for="total">Total :</label>
+					<input type="number" name="total" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ invoice.total }}" required="require">
+				</div>
+				<a href="/invoice/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+				<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+			</form>
+		</div>
+	</div>
+
+{% endblock %}

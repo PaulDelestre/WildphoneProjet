@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+{% block content %}
+
+<div class="container ">
+    <a href="/article/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+    <h1>Ajouter un nouvel article</h1>
+    <form method="post">
+    <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">
+    </div>
+    <div class="form-group">
+        <label for="price">Prix</label>
+        <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  required="require">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="require"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantité</label>
+        <input type="number" name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">
+    </div>
+    <div class="form-group">
+        <label for="color_id">Couleur</label>
+		<select name="color_id" id="pet-select">
+			{% for color in colors %}
+			<option value="{{color.id}}">{{color.name}}</option>
+			{% endfor %}
+		</select>
+    </div>
+    <div class="form-group">
+        <label for="brand_id">Marque</label>
+        <select name="brand_id" id="brand-select">
+			{% for brand in brands %}
+			<option value="{{brand.id}}">{{brand.name}}</option>
+			{% endfor %}
+		</select>
+    </div>
+    <div class="form-group">
+        <label for="model_id">Modèle</label>
+        <select name="model_id" id="model-select">
+			{% for model in models %}
+			<option value="{{model.id}}">{{model.name}}</option>
+			{% endfor %}
+		</select>
+    </div>
+
+    <a href="/article/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+	<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+    </form>
+    
+</div>
+   
+{% endblock %}
+

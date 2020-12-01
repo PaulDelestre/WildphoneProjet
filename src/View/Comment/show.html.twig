@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Commentaires -
+	{{comment.user_id}}
+{% endblock %}
+
+
+{% block content %}
+	<div class="container container-admin">
+		<div class="card m-auto">
+			<div class="card-body">
+				<h5 class="card-title">ID Article :
+					{{ comment.article_id }}</h5>
+				<p class="card-text">ID Client :
+					{{comment.user_id}}</p>
+				<p class="card-text">Commentaire :
+					{{comment.review}}</p>
+			</div>
+			<div class="card-footer text-center">
+				<a href="/comment/edit/{{ comment.id }}" class="btn btn-warning">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a href="/comment/delete/{{comment.id}}" class="btn btn-danger">Modérer
+					<i class="fas fa-trash"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

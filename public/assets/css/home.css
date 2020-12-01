@@ -1,0 +1,262 @@
+body{
+    background-color: #f1f1ef;
+}
+
+
+.carousel-control-next-icon{
+   
+    width:10%;
+    height:10%;
+}
+
+.carousel-control-prev-icon{
+    
+    width:10%;
+    height:10%;
+}
+
+
+
+.carousel-inner img{
+    width:100%;
+    max-height: 800px !important;
+}
+
+.home{
+    display:flex;
+    align-items: center;
+    background-color: white;
+    width:50%;
+    padding:3%;
+    margin-left: 25%;
+    margin-top:3%;
+    margin-bottom:3%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+
+.btn-pri{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .970rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .15rem;
+    transition: color .15s;
+    background-color: var(--primary-green);
+    border-color:var(--primary-green);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-pri:hover{
+
+    background-color: var(--secondary-green);
+    border-color:var(--secondary-green);
+}
+
+/*.btn-warn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .970rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .15rem;
+    transition: color .15s;
+    background-color: var(--secondaryblue);
+    border-color:var(--secondaryblue);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}*/
+
+
+
+/*a{
+    color:inherit;
+}*/
+
+.item-home{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10%;
+    margin-left: 20%;
+}
+
+.text-commercial{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10%;
+    margin-left: 20%;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.align-txt{
+    text-align: center;
+}
+
+.welcome{
+    background-color: white;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    margin-top:5%;
+}
+
+.text-commercial-gras{
+    margin-top: 10%;
+}
+
+
+.title-promo{
+    font-family: 'Montserrat',sans-serif;
+}
+
+
+/* Conteneur principal */
+.overlay-image {
+    position: relative;
+    width: 100%;
+   }
+   /* Image originale */
+   .overlay-image .image {
+    display: block;
+    width: 100%;
+    height: auto;
+   }
+   /* Texte original */
+   .overlay-image .text {
+    color: #fff;
+    font-size: 30px;
+    line-height: 1.5em;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+   }
+
+   /********* Hover image et texte *******/
+/* Overlay */
+.overlay-image .hover {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+   }
+   /* Apparition overlay sur passage souris */
+   .overlay-image:hover .hover {
+    opacity: 1;
+   }
+   
+   .overlay-image .normal {
+    transition: .5s ease;
+   }
+   .overlay-image:hover .normal {
+    opacity: 0;
+   }
+   .overlay-image .hover {
+    background-color: rgba(0,0,0,0.5);
+   }
+
+   .card-title-article{
+    font-family: 'Monotype',sans-serif ;
+   }
+
+   .from{
+       font-size: small;
+   }
+
+   .crossed{
+       color:rgb(218, 11, 11);
+       font-size: smaller;
+   }
+   
+   .waranty{
+    font-size: smaller;
+   }
+
+   .left-btn{
+       background-color:  var(--primary-green);
+       margin-bottom: 8%;
+       margin-top: 10%;
+       width: 45%;
+   }
+
+   .right-btn{
+    background-color:  var(--primary-green);
+    margin-bottom: 8%;
+    margin-top: 10%;
+
+   }
+
+    .left-btn:hover{
+        color: white;
+       background-color:  var(--secondary-green);
+       margin-bottom: 8%;
+       margin-top: 10%;
+       width: 45%;
+   }
+
+   .right-btn:hover{
+       color: white;
+       background-color:  var(--secondary-green);
+       margin-bottom: 8%;
+       margin-top: 10%;
+
+   }
+  
+   @media screen and (max-width: 720px) {
+    .welcome {
+        display: none;
+
+    }
+
+    .left-btn{
+        background-color:  var(--primary-green);
+        margin-bottom: 8%;
+        margin-top: 10%;
+        width: 30%;
+    }
+
+    @media only screen and (max-width: 768px){
+        .container-card{
+            width:70%;
+            margin-left: 15%;
+        }
+        .title-promo{
+            text-align: center;
+            font-size: 100%;
+            margin-bottom: 10%;
+        }
+        .card-img-topimage_b1{
+            width:70%;
+            margin-left: 15%;
+            margin-top: 5%;
+        }
+    }
+
+  }

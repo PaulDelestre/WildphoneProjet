@@ -1,0 +1,111 @@
+{% extends 'layout.html.twig' %}
+{% block title %} {{ article.name }} {% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/article-show.css">
+<link rel="stylesheet" href="/assets/css/edit.css">
+{% endblock %}
+
+{% block content %}
+<div class=" container container-show ">
+	<div class="row ">
+		<div class="col-md-4 col-sm-12 mx-auto  ">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{article.images[0].url}}" class="d-block w-100  " alt="picture of {{ article.name }} color: {{article.color_name}} ">
+                    </div>
+                    {% for i in 1..article.images|length-1 %}
+                    <div class="carousel-item">
+                        <img src="{{article.images[i].url}}" class="d-block w-100 " alt="picture of {{ article.name }} color: {{article.color_name}} ">
+                    </div>
+                    {% endfor %}                    
+                </div>
+            </div>            
+		</div>
+		    <div class="col-md-4  col-sm-9 mx-auto">
+                <div class="section mx-auto align-self-center container-stock">
+                    <h3>{{article.brand_name }}</h3>
+                    <h3 class="card-title color-subtitle">{{ article.name }} - {{article.color_name}}</h3>
+                    <p class="card-text"><span class="bolder price-size">{{article.price}} € </span></p> 
+                    <button class="btn btn-primary btn-show" href="#" data-toggle="collapse" data-target="#target1">
+                        Details
+                    </button>
+                    <div id="target1" class="collapse">
+                        {{ article.description }}
+
+                    </div>
+                    <div class="promo-rachat">
+                        <p>
+                            Ou à partir de<span class="bolder"> {{article.price * 0.7 }} € </span> avec la reprise d'un appareil
+                        </p>
+					</div>
+					<div class="icon-promo">
+						<p><i class="fas fa-coins"></i> Les meilleurs prix du marché !</p>
+						<p></p><i class="fas fa-file-contract icon-promo"></i> Garantie 12 mois !</p>
+						<p><i class="fas fa-leaf"></i> Respect total de l'environement !</p>
+                    </div>
+                </div>
+		    </div>
+		<div class="col-md-4 col-sm-9 mx-auto">
+            <div class="container-stock">
+                <p class="stock"><i class="fas fa-exclamation exclam"></i> {{article.quantity}} produits en stock</p>
+            </div>
+            <div class="container-pub">
+                <p class="text-pub"><i class="fas fa-check-circle"></i>  Garantie : 12 mois</p>
+                <p class="text-pub"><i class="fas fa-check-circle"></i>  30 jours pour tester</p>
+                <p class="text-pub"><i class="fas fa-check-circle"></i>  Service client hyper réactif</p>
+			</div>
+			
+            <div class="container-pub shippement">
+				<label class="label-purchase">Livraison <i class="fas fa-info-circle secondary-blue"></i></label>
+                <select class="form-control form-add-cart">
+					<option>3 jours - offert</option>					
+				</select>
+				  <label class="label-purchase">Garantie panne <i class="fas fa-info-circle secondary-blue"></i></label>
+                <select class="form-control form-add-cart">
+					<option>12 mois - offert</option>
+					<option>24 mois - 3,99 € mois</option>					
+				</select>
+				<p class="label-purchase"> Payez en 3x ou 4x <i class="fab fa-cc-visa"></i></p>
+				<form method="POST">
+				<input type="text" class="d-none" name="add_article" value="{{article.id}}">
+				<button type="submit" class="btn btn-danger add-cart ">Ajouter au panier</button>
+				</form>
+            </div>     
+        </div>
+    </div>
+</div>
+<div class="container comment">
+	<div class="card">
+	    <div class="card-body">
+            {% if session.id %}
+            <button class="btn btn-primary mb-3 btn-show" data-toggle="collapse" data-target="#target2">
+                <i class="far fa-comments"></i> Commentaire
+            </button >
+            <form method="POST">
+                <div id="target2" class="collapse">
+                        <textarea class="form-control" name="review"id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <button type="submit" class="btn btn-primary float-right mt-3 btn-show">Envoyer</button>
+                    
+                </div>
+            </form>
+            {% endif %}
+	        <div class="row">
+                {% for comment in comments %}
+                <div class="col-md-2 ml-3">
+                    <p>
+        	            <div class="float-left name-coment"><strong> {{comment.user_firstname}} {{comment.user_lastname}}</strong></div>
+        	       </p>
+                </div> 
+        	    <div class="col-md-11">
+        	       <div class="clearfix ml-3">{{comment.review}}</div>
+        	    </div>
+                <hr>
+                {% endfor %}
+	        </div>   	
+	    </div>
+	</div>
+</div>
+
+{% endblock %}
+

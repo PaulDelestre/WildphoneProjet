@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+
+{% block content %}
+
+	<div class="container volume">
+		<a href="/brand/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+		<h1>Editer la marque</h1>
+		<div class="form  ">
+			<form method="post">
+				<div class="form-group center-form">
+					<label for="brand" class="">Nouveau nom:</label>
+					<input type="text" name="name" class="form-control w-50 center-form" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ brand.name }}" required="require">
+				</div>
+				<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-edit"> Éditer</i></button>
+			</form>
+			<button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> <a href="/brand/show/{{ brand.id }}">Retour</a></i></button>	
+		</div>
+	</div>
+    	
+{% endblock %}

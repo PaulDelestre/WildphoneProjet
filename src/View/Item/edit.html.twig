@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block content %}
+    <h1>Editer l'objet</h1>
+    <form method="post">
+        <div class="form-group">
+            <label for="object">Objet</label>
+            <input type="text" name="title" class="form-control" id="url" aria-describedby="emailHelp" value="{{ image.url }}" required="require">
+        </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <a href="/image/show/{{ image.id }}">Retour</a>
+{% endblock %}

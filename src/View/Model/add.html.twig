@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Modèles - Ajouter
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container container-admin">
+    <a href="/model/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+    <h1>Ajouter un nouveau modèle</h1>
+    <form method="post">
+    <div class="form-group center-form">
+        <label for="price">Modèle</label>
+        <input type="text" name="name" class="form-control col-5 center-form" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">
+    </div>
+    <a href="/model/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+	<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+    </form>
+   </div> 
+{% endblock %}

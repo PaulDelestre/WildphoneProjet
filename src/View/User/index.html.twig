@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Admin - Utilisateurs
+{% endblock %}
+
+{% block content %}
+    <h2 class="display-4">Utilisateurs :</h2>
+<div class="text-right my-3">
+    <a href="/user/add" class="btn btn-sm btn-primary">Ajouter<i class="fas fa-plus-circle"></i></a>
+</div>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID Client</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mot de Passe</th>
+            <th scope="col">Addresse</th>
+            <th scope="col">ID Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.lastname }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.role_id }}</td>
+            <td>
+                <a href="/user/show/{{ user.id }}" class="btn btn-sm btn-success my-2"><i
+                        class="fas fa-eye"></i></a>
+                <a href="/user/edit/{{ user.id }}" class="btn btn-sm btn-warning my-2"><i
+                        class="fas fa-edit"></i></a>
+                <a href="/user/delete/{{ user.id }}" class="btn btn-sm btn-danger my-2"><i
+                        class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

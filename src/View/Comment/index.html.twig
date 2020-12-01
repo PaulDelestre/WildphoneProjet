@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Commentaires
+{% endblock %}
+
+{% block content %}
+    <h2 class="display-4">Commentaires :</h2>
+<div class="text-right my-3">
+    <a href="/comment/add" class="btn btn-sm btn-primary">Ajouter <i class="fas fa-plus-circle"></i></a>
+</div>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ID Article</th>
+            <th scope="col">ID Client</th>
+            <th scope="col">Commentaire</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for comment in comments %}
+        <tr>
+            <td>{{ comment.id }}</td>
+            <td>{{ comment.article_name }}</td>
+            <td>{{ comment.user_firstname }}</td>
+            <td>{{ comment.review }}</td>
+            <td>
+                <a href="/comment/show/{{ comment.id }}" class="btn btn-sm btn-success my-2"><i
+                        class="fas fa-eye"></i></a>
+                <a href="/comment/edit/{{ comment.id }}" class="btn btn-sm btn-warning my-2"><i
+                        class="fas fa-edit"></i></a>
+                <a href="/comment/delete/{{ comment.id }}" class="btn btn-sm btn-danger my-2"><i
+                        class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Inscription{% endblock %}
+
+ {% block stylesheet %}<link rel="stylesheet" href="/assets/css/register.css"> {% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div>
+			<div class="card m-auto">
+				<div class="jumbotron bg-light text-dark">
+					{% if error is not null %}
+						<div class="alert alert-danger" role="alert">
+							{{error}}
+						</div>
+					{% endif %}
+					<h2 class="display-9 mb-5 text-center">S'inscrire</h2>
+					<form method="POST">
+						<div class="form-group">
+							<label for="firstname">Prénom</label>
+							<input type="firstname" class="form-control" id="firstname" name="firstname">
+						</div>
+						<div class="form-group">
+							<label for="lastname">Nom</label>
+							<input type="lastname" class="form-control" id="lastname" name="lastname">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email" name="email">
+						</div>
+						<div class="form-group">
+							<label for="address">Adresse postale</label>
+							<input type="text" class="form-control" id="address" name="address">
+						</div>
+						<div class="form-group">
+							<label for="password">Choisir un mot de passe</label>
+							<input type="password" class="form-control" id="password" name="password">
+						</div>
+						<div class="form-group">
+							<label for="password">Confirmer le mot de passe</label>
+							<input type="password" class="form-control" id="password2" name="password2">
+						</div>
+						<div class="btn-center "><button type="submit" class="btn btn-pri" name="register">
+							<a href="/"></a>S'inscrire</button></div>
+					</form>
+                    <div class="btn-center">
+							<br><a href="\security/login" >Déjà inscrit(e)? Connectez-vous !</a>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

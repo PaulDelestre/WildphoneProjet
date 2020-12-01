@@ -1,0 +1,18 @@
+:root {
+    --primaryblue: #007196;
+    --secondaryblue: #74CAE6;
+    --white: #FFF;
+    --primary-green:#377278;
+    --secondary-green:#4e9ca5;
+}
+
+*{
+    margin: 0;
+    padding:0;
+}
+
+a{
+    color: initial;
+}
+
+

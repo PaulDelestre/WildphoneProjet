@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Commentaires - Ajouter{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+{% block content %}
+	<div class="container container-admin">
+		<a href="/comment/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+		<h1>Ajouter un nouveau commentaire</h1>
+		<form method="post">
+			<div class="form-group">
+                <label for="name">ID Article:</label>
+                <input type="number" name="article_id" class="form-control col-2" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ comment.article_id }}" required="require">
+            </div>
+            <div class="form-group">
+                <label for="price">ID client:</label>
+                <input type="number" name="user_id" class="form-control col-2" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ comment.user_id }}" required="require">
+            </div>
+            <div class="form-group">
+                <label for="description">Commentaire:</label>
+                <textarea type="text" name="review" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{ comment.review }}" required="require"></textarea>
+            </div>
+			<a href="/comment/index"><button type="button" class="btn btn-danger marge-button"><i class="fas fa-backspace"> Retour</i></button></a>
+			<button type="submit" class="btn btn-warning pull-right marge-button"><i class="fas fa-plus-circle"></i> Ajouter</i></button>
+		</form>
+	</div>
+</div>{% endblock %}
+

@@ -1,0 +1,40 @@
+.bkg{
+    background-image: url("https://zupimages.net/up/20/46/34gi.jpg");
+    background-position: 90% 50%;
+    padding: 7%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.profile{
+    text-align: right;
+    margin-top: -3%;
+}
+
+.title-montserrat{
+    color:black;
+    font-family: 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif; 
+}
+
+.font-black{
+    background-color: black;
+    color: white;
+    
+
+
+}
+.align{
+    text-align: center;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px){
+    .bkg{
+        background-image: url("https://zupimages.net/up/20/46/34gi.jpg");
+        background-position: 81% 30%;
+        padding: 7%;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+

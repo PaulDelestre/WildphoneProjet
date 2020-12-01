@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Accueil{% endblock title %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm borderr">
+            <p class="menu-admin">ARTICLES</p>
+            <a href="\article/index"><i class="fas fa-mobile-alt big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">MARQUES</p>
+            <a href="\brand/index"><i class="fab fa-apple big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">COULEURS</p>
+            <a href="\color/index"><i class="fas fa-tint big-icon"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm borderr">
+            <p class="menu-admin">COMMENTAIRES</p>
+            <a href="\comment/index"><i class="fas fa-comment-alt big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">IMAGES</p>
+            <a href="\image/index"><i class="fas fa-images big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">FACTURATION</p>
+            <a href="\invoice/index"><i class="fas fa-file-invoice-dollar big-icon"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm borderr">
+            <p class="menu-admin">MODÈLES</p>
+            <a href="\model/index"><i class="far fa-copyright big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">COMMANDES</p>
+            <a href="\purchase/index"><i class="fas fa-cart-plus big-icon"></i></a>
+        </div>
+        <div class="col-sm borderr">
+            <p class="menu-admin">UTILISATEURS</p>
+            <a href="\user/index"><i class="fas fa-users big-icon"></i></a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

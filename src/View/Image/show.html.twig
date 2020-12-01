@@ -1,0 +1,27 @@
+
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12">
+        <div class="card m-auto ">
+            <div class="card-body ">
+                <a href="/image/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+				<p class="card-text">#{{image.id}}</p> 
+				<div class="text-center">
+					<img src="{{ image.url }}" class="img-fluid center-block" width="50%">
+				</div>   
+            </div>
+            <div class="card-footer text-center">
+                <a href="/image/edit/{{ image.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+                <a href="/image/delete/{{ image.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a> 
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+{% endblock %}
+

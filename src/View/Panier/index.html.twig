@@ -1,0 +1,170 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Panier
+{% endblock title %}
+{% block stylesheet %}
+	<link rel="stylesheet" href="/assets/css/panier.css">
+{% endblock %}
+
+{% block content %}
+
+{% if session.cart is empty %}
+	<div class="jumbotron bg-black text-center">
+		<img src="https://zupimages.net/up/20/46/52ei.png">
+		<h1 class="display-4 text-white big-title">Votre panier est vide !</h1>
+		<a href="/telephone/index" class="text-lg">Retour à la boutique</a>
+	</div>
+{% endif %}
+{% if session.cart is not empty and session.id is not defined %}
+	<div class="container">
+		<p class="font-italic">
+			<a href="/telephone/index" class="text-lg">Retour à la boutique</a>
+		</p>
+		<form method="POST">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col"></th>
+					<th scope="col">Prix</th>
+					<th scope="col">Couleur</th>
+					<th scope="col">Modèle</th>
+					<th scope="col">Quantité</th>
+					<th scope="col">Total TTC</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% if session.cart %}
+					{% for article in cartInfos %}
+				<tr>
+					<input type="text" class="d-none" name="id[]" value="{{article.id}}">
+					<td>{{article.name}}</td>
+					<td><img src="{{article.images[0].url}}" class="img-fluid w-25" alt=""></td>
+					<td>{{article.price}}€</td>
+					<td>{{article.color_name}}</td>
+					<td>{{article.brand_name}}</td>
+					<td>
+						<select name="qty[]" id="qty">
+							<option value="{{article.qty}}">{{article.qty}}</option>
+							{% for i in 1..article.quantity %}
+								{% if i != article.qty %}
+									<option value="{{i}}">{{i}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+					<td>{{article.price * article.qty }}€</td>
+					<td>
+						<a href="/panier/deleteArticle/{{article.id}}" class="btn btn-danger btn-sm">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
+				</tr>
+			</td>
+		</tbody>
+	</tr>
+{% endfor %}
+		</tbody>
+	{% endif %}
+</table>
+<div class="text-center my-5"><button type="submit" class="btn btn-pri big-title" name="update_cart">Mettre à jour mon panier</button></div>
+</form>
+<div class="jumbotron bg-dark text-center text-white">
+	<h2 class="text-darj big-title ">Total panier :
+		{{total}}
+		€</h2>
+	<h5 class="big-title text-center">
+		<u>
+			<a href="/security/login" class="text-white ">Déjà inscrit(e) ? Identifiez-vous</a>
+			<br>
+			<br>
+		</u>
+		<u>
+			<a href="/security/register" class="text-white">Pas encore de compte ? Créer un compte</a>
+		</u>
+	</h5>
+</div></div>{% endif %}{% if session.cart is not empty and session.id is defined %}<div class="container">
+<p class="font-italic">
+	<a href="/telephone/index" class="text-lg">Retour à la boutique</a>
+</p>
+<form method="POST">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Nom</th>
+				<th scope="col"></th>
+				<th scope="col">Prix</th>
+				<th scope="col">Couleur</th>
+				<th scope="col">Modèle</th>
+				<th scope="col">Quantité</th>
+				<th scope="col">Total TTC</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			{% for article in cartInfos %}
+				<tr>
+					<input type="text" class="d-none" name="id[]" value="{{article.id}}">
+					<td>{{article.name}}</td>
+					<td><img src="{{article.images[0].url}}" class="img-fluid w-25" alt=""></td>
+					<td>{{article.price}}€</td>
+					<td>{{article.color_name}}</td>
+					<td>{{article.brand_name}}</td>
+					<td>
+						<select name="qty[]" id="qty">
+							<option value="{{article.qty}}">{{article.qty}}</option>
+							{% for i in 1..article.quantity %}
+								{% if i != article.qty %}
+									<option value="{{i}}">{{i}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</td>
+					<td>{{article.price * article.qty }}€</td>
+					<td>
+						<a href="/panier/deleteArticle/{{article.id}}" class="btn btn-danger btn-sm">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
+				</tr>
+			</td>
+		</tbody>
+	</tr>
+{% endfor %}
+</tbody>
+</table>
+<div class="text-center my-5"><button type="submit" class="btn btn-pri big-title" name="update_cart">Mettre à jour mon panier</button></div>
+</form>
+<div class="jumbotron bg-dark text-center text-white">
+<h2 class="big-title">Total panier: {{total}}€</h2>
+{% if session.flash_message is not empty %}
+{% for message in session.flash_message %}
+<div class="col-12">
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		<strong>{{message}}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close" id="clear_flash">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+</div>{% endfor %}{% endif %}</div><div class="alert alert-danger d-none" role="alert" id="card-errors"></div><hr class="my-4"><form method="POST"><input type="text" class="d-none" name="payment"><div class="form-group"><label for="name">Nom *</label><input type="text" class="form-control" name="name" id="name" value="{{lastname}}"></div><div class="form-group"><label for="firstname">Prénom *</label><input type="text" class="form-control" name="firstname" id="firstname" value="{{firstname}}"></div><div class="form-group"><label for="email">Email *</label><input type="email" class="form-control" name="email" id="email" value="{{email}}"></div><div class="form-group"><label for="address">Adresse *</label><input type="text" class="form-control" name="address" id="address" value="{{address}}"></div><!-- STRIPE --><input type='text' id="token" name='stripeToken' style="display: none" value=""><div id="card" class="my-5"></div><!-- END STRIPE --><div class="small">* Champs obligatoires</div><div class="text-center my-4"><button type="submit" class="btn btn-pri" id="submit">Valider mon panier</button></div></form></div></div>{% endif %}{% endblock %}{% block javascript %}<script src="https://js.stripe.com/v3/"></script><script>var stripe = Stripe('pk_test_51HfMzwEhwBrDtDMxluLzgB3z41aXwYVdbrsRRieRUlOTVot7cw0WQPCZ3Rqsj68dDsVnecVvNkPSWPudH8xUTPjL00FGhOgRUj');
+let form = document.getElementById('card');
+let inputToken = document.getElementById('token')
+let submitButton = document.getElementById('submit')
+var elements = stripe.elements();
+
+var cardElement = elements.create('card');
+cardElement.mount(form);
+cardElement.on('change', (event) => {
+var displayError = document.getElementById('card-errors');
+if (event.complete) {
+stripe.createToken(cardElement).then(result => {
+if (result.token) {
+inputToken.value = result.token.id;
+submitButton.classList.remove('disabled');
+} else if (result.error) {
+alert(result.error)
+}
+})
+} else if (event.error) {
+displayError.textContent = event.error.message;
+}
+});</script>{% endblock %}

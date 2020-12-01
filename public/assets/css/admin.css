@@ -1,0 +1,25 @@
+.borderr{
+    border: solid black;
+    background-color:#007196;
+    text-align: center;
+    padding: 2%;
+    margin:1%;
+    border-radius: 30px;
+
+}
+
+.big-icon{
+    font-size: 3em;
+    text-decoration: none;
+    color: yellow;
+}
+
+.big-icon:hover{
+    color: greenyellow;
+}
+
+.menu-admin{
+    font-family: "Montserrat";
+    color: white;
+}
+

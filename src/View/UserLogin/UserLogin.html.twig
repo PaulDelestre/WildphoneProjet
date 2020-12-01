@@ -1,0 +1,52 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Connectez-vous
+{% endblock %}
+
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/register.css"> {% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="jumbotron my-5 bg-light text-black">
+            {% if error is not null %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif %}
+            <h2 class="display-9 mb-5 text-center">Se connecter</h2>
+            <div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 m-auto">
+					<form method="POST">
+						<div class="form-group">
+							<div class="row">
+								<div class="col-lg-3 col-xs-12 text-center">
+									<label for="email">Email :</label>
+								</div>
+								<div class="col-lg-11 col-xs-10">
+									<input type="email" class="form-control" id="email" name="email" value="">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="row">
+								<div class="col-lg-3 col-xs-12 text-center">
+									<label for="password">Mot de passe :</label>
+								</div>
+								<div class="col-lg-11 col-xs-12">
+									<input type="password" class="form-control validate" id="password" name="password" value="">
+								</div>
+							</div>
+						</div>
+						<div class="text-center mt-4">
+							<button type="submit" class="btn btn-pri"><a href="/security/show/{{ user.id }}"></a>Se connecter</button>
+						</div>
+						<br>
+						<div class="btn-center">
+							<a href="\security/register" >Pas encore de compte ? S'inscrire</a>
+						</div>
+					</form>
+				</div>
+			</div>
+        </div>
+    </div>
+{% endblock %}
+

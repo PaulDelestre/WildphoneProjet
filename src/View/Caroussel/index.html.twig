@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Images - Caroussel
+{% endblock %}
+
+
+{% block content %}
+	<h2 class="display-4">Images du caroussel :</h2>
+	<div class="text-right my-3">
+		<a href="/caroussel/add" class="btn btn-sm btn-primary">Ajouter
+			<i class="fas fa-plus-circle"></i>
+		</a>
+	</div>
+	<table class="table table-dark">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Image</th>
+				<th scope="col">Url de l'image</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for caroussel in caroussels %}
+				<tr>
+					<td>{{ caroussel.id }}</td>
+					<td>{{ caroussel.name }}</td>
+					<td>
+						<img src="{{ caroussel.url }}" class="img-fluid" width="150px">
+					</td>
+					<td>{{ caroussel.url }}</td>
+					<td>
+						<a href="/caroussel/show/{{ caroussel.id }}" class="btn btn-sm btn-success my-2">
+							<i class="fas fa-eye"></i>
+						</a>
+						<a href="/caroussel/edit/{{ caroussel.id }}" class="btn btn-sm btn-warning my-2">
+							<i class="fas fa-edit"></i>
+						</a>
+						<a href="/caroussel/delete/{{ caroussel.id }}" class="btn btn-sm btn-danger my-2">
+							<i class="fas fa-trash"></i>
+						</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
+

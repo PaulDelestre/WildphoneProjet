@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin - Commentaires - Modifier
+{% endblock %}
+
+
+{% block content %}
+	<div class="container container-admin">
+		<h1>Editer le commentaire #
+			{{ comment.id  }}</h1>
+		<form method="post">
+			<div class="form-group">
+				<label for="name">ID Article:</label>
+				<input type="number" name="article_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ comment.article_id }}" required="require">
+			</div>
+			<div class="form-group">
+				<label for="price">ID client:</label>
+				<input type="number" name="user_id" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ comment.user_id }}" required="require">
+			</div>
+			<div class="form-group">
+				<label for="description">Commentaire:</label>
+				<textarea type="text" name="review" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="require">{{ comment.review }}</textarea>
+			</div>
+			<a href="/comment/show/{{ comment.id }}" class="btn btn-primary">Retour</a>
+			<button type="submit" class="btn btn-success">Modifier</button>
+		</form>
+	</div>
+
+{% endblock %}
+

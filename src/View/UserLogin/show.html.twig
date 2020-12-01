@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Mon compte{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/user-page.css"> {% endblock %}
+{% block content %}
+<div class="container-user">
+    <div class="bkg">
+        <div class="profile">
+<h4 class="title-montserrat">Bienvenue chez Wildphone,<br> {{user.firstname}} {{user.lastname}} !</h4>
+                        <p class="card-text">Email : {{user.email}}</p>
+                        <p class="card-text">Mot de passe : ********</p>
+                        <p class="card-text">Adresse postale : {{user.address}}</p>
+                <a href="/" class="btn btn-sm btn-pri my-2">Voir la boutique</a>
+                <a href="/security/edit/{{ user.id }}" class="btn btn-sm btn-pri">Modifier votre profil
+                    <i class="fas fa-edit"></i></a>
+                    </div>
+                    </div>
+                </div>
+                {% if purchases != null  %}
+                    <div class="container text-center">
+                {% for purchase in purchases %}
+                    <div class="row text-center">
+                        <div class="align">
+                        <h5 class="font-black title-montserrat">Commande du {{ purchase.created_at|date("d/m/Y") }} pour un total de {{ purchase.total ~ '€' }}</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6 class="title-montserrat">Article</h6>
+                                    {% for invoice in invoices %}
+                                    {% if invoice.purchase_id == purchase.id %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{invoice.article_name}}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="title-montserrat">Quantité</h6>
+                                    {% for invoice in invoices %}
+                                    {% if invoice.purchase_id == purchase.id %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{invoice.quantity}}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="title-montserrat">Total</h6>
+                                    {% for invoice in invoices %}
+                                    {% if invoice.purchase_id == purchase.id %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {{invoice.total ~ '€'}}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+{% endblock %}

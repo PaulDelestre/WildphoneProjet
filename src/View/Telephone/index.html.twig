@@ -1,0 +1,81 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Nos téléphones
+{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/card.css">
+<link rel="stylesheet" href="/assets/css/telephone.css">
+<link rel="stylesheet" href="/assets/css/home.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if articleNb != '' %}
+        <p> il y a {{articleNb}} résultat(s) à votre recherche </p>
+    {% endif %}
+	<div class="row">
+        <div class="col-md-3 ">  
+            <form class="form-group center-form ct-filter " method='post'>
+                <div class="container modele ct-name-filter"><p class="text-filter">Modèles</p></div>
+                
+            {% for model in models %}
+                <div class="form-check">
+                        <input class="form-check-input" id="model"type="checkbox" value ="{{model.id}}" name="model">
+                        <label class="form-check-label" for="model">{{model.name}}</label>
+                </div>
+                    {% endfor %}
+                <div class="container center-form ct-name-filter"><p class="text-filter">Marques</p></div>
+                {% for brand in brands %}
+                <div class="form-check">
+                    <input class="form-check-input" id="brand"type="checkbox" value ="{{brand.id}}" name="brand">
+                    <label class="form-check-label" for="brand">{{brand.name}}</label>
+                </div>
+                {% endfor %}
+                <div class="container center-form ct-name-filter"><p class="text-filter">Couleurs</p></div>
+                    {% for color in colors %}
+                    <div class="form-check">
+                        <input class="form-check-input" id="color"type="checkbox" value ="{{color.id}}" name="color">
+                        <label class="form-check-label" for="color">{{color.name}}</label>
+                    </div>
+                    {% endfor %}
+                    <div class="container text-center">
+                        <button type="submit" class="btn align left-btn ">Filtrer</button>
+                        <button type="submit" class="btn align right-btn ">Réinitialiser</button>
+                    </div>
+
+
+ 
+            </form>  
+        </div>
+		<div class="col-md-9">
+            <div class = "container-fluid ct-phone">
+                <div class="row" style="padding-bottom : 1rem;">
+                {% if articleNb == '0' %}
+                    <p> il n'y a aucun résultat à votre recherche </p>
+                {% endif %}
+                    {% for article in articles %}
+				<div class="col-lg-3 col-md-6 col-sm-12 my-3">
+					<div class="card overlay-image _b0">
+						<img src="{{ article.images[0].url }}" class="card-img-top image _b1" alt="">
+						<div class="card-body text-center">
+							<h5 class="card-title-article">{{ article.name }} {{ article.color_name }} </h5>
+                            <p> <span class="from">à partir de </span>
+							{{ article.price }} €</p>
+                            <p class="waranty">Garantie 12 mois</p>
+						</div>
+						<div class=" hover _b2 ">
+                        <div class="text _2"><a href="/telephone/show/{{ article.id }}" class="btn btn-pri">
+                &nbsp; Voir plus &nbsp; <i class="fas fa-caret-right"></i>
+                </a>
+                </div>
+            </div>
+					</div>
+				</div>
+			{% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+	</div>
+</div>
+
+{% endblock %}

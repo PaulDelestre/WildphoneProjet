@@ -1,0 +1,186 @@
+.container-show{
+    margin-top:2%;
+    margin-bottom: 2%;
+    background-color: white;
+    border-width: 1px;
+    border: solid rgb(219, 219, 219);
+    border-width: thin;
+
+}
+
+.container-pub{
+    border-width: 1px;
+    border: solid rgb(219, 219, 219);
+    border-width: thin;
+    display: block;
+    width: 80%;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,.25);;
+}
+
+.text-pub{
+    font-size: 16px;
+    margin-left: 5%;
+}
+
+.fa-check-circle{
+    color: #72D62F;
+}
+
+.bolder{
+    font-weight: bold;
+}
+
+.stock{
+    text-align: center;
+    background-color: var(--primary-green);;
+    width: 80%;
+    color: white;
+    font-weight: bold;
+}
+
+.decription{
+    text-align: justify;
+}
+
+.exit{
+    color: #c82333;
+    font-size: 30px;
+}
+
+.exit:hover{
+    color: red;
+}
+
+.marge-button{
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+.color-subtitle{
+    color: var(--secondary-green);
+}
+
+.bg-blue{
+    background-color: #007196 ;
+}
+
+.exclam{
+    font-size: 15px;
+}
+
+.promo-rachat{
+    background-color: #FFD8FB;
+    text-align: center;
+    margin-top: 3%;
+    width: 70%;
+    margin-top: 5%;
+    
+}
+
+.price-size{
+    font-size: 30px;
+}
+
+.brand{
+    font-size: 100px;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+.center-form{
+    margin-right: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.volume{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: white;
+    border-width: 1px;
+    border: solid rgb(219, 219, 219);
+    border-width: thin;
+    display: block;
+}
+
+.comment-show{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.add-cart{
+    display: flex;
+    margin-left: auto;
+    margin-right:auto ;
+    margin-bottom: 3%;
+}
+
+.secondary-blue{
+    color: #74CAE6;
+}
+
+.shippement{
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+
+.fa-cc-visa{
+    color:#74CAE6 ;
+    font-size: 30px;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+
+.form-add-cart{
+    display: flex;
+    margin-left: auto;
+    margin-right:auto ;
+    width: 90%;
+}
+
+.label-purchase{
+    margin-left: 5% ;
+}
+
+.icon-promo{
+    line-height: 5px;
+}
+
+.container-stock{
+    margin-top: 3%;
+}
+
+.comment{
+    margin-bottom: 3%;
+}
+
+.name-coment{
+    margin-bottom: 5%;
+}
+
+.btn-show{
+    background-color:var(--primary-green);
+    border-color:  var(--primary-green);
+}
+
+.btn-show:hover{
+    background-color:var(--secondary-green) ;
+    border-color:  var(--secondary-green);
+}
+
+
+.btn-show:focus{
+    background-color: var(--secondary-green);
+
+}
+
+.btn-404{
+    margin-bottom:4%;
+    margin-top : -4%;
+
+}
+
+
+

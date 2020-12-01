@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Admin - Utilisateurs -
+	{{user.email}}
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="card m-auto">
+			<div class="card-body">
+				<h5 class="card-title">{{ user.firstname }}</h5>
+				<p class="card-text">Prenom :
+					{{user.lastname}}</p>
+				<p class="card-text">Email :
+					{{user.email}}</p>
+				<p class="card-text">Mot de passe :
+					{{user.password}}</p>
+				<p class="card-text">Addresse :
+					{{user.address}}</p>
+				<p class="card-text">Role :
+					{{user.role_id }}</p>
+
+				<a href="/user/edit/{{ user.id }}" class="btn btn-warning my-2">
+					<i class="fas fa-edit"></i>
+				</a>
+				<a href="/user/delete/{{ user.id }}" class="btn btn-danger my-2">
+					<i class="fas fa-trash"></i>
+				</a>
+				<a href="/user/index/{{ user.id }}" class="btn btn-primary">Retour</a>
+			</div>
+			<div class="card-footer text-center"></div>
+		</div>
+	</div>
+{% endblock %}
+

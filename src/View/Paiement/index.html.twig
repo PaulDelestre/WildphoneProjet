@@ -1,0 +1,261 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/panier.css">
+{% endblock %}
+{% block content %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title></title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <div class="container">
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="/assets/images/favicon.png" alt="" width="72" height="72">
+    <h2>Votre commande</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Votre panier</span>
+        <span class="badge badge-secondary badge-pill">3</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Tel 1</h6>
+            <small class="text-muted">Description</small>
+          </div>
+          <span class="text-muted">...€</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Tel 2</h6>
+            <small class="text-muted">Description</small>
+          </div>
+          <span class="text-muted">... €</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Tel 3</h6>
+            <small class="text-muted">Description</small>
+          </div>
+          <span class="text-muted">... €</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between bg-light">
+          <div class="text-success">
+            <h6 class="my-0">Code Promo</h6>
+            <small>XXXX</small>
+          </div>
+          <span class="text-success">-€</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Total </span>
+          <strong>... €</strong>
+        </li>
+      </ul>
+
+      <form class="card p-2">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Promo code">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-pri">Appliquer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8 order-md-1">
+      <h4 class="mb-3">Adresse de facturation</h4>
+      <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">Prénom</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Un prénom valide est requis.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Nom valide est requis.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="username">Nom d'utilisateur</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control" id="Nom d'utilisateur" placeholder="Nom d'utilisateur" required>
+            <div class="invalid-feedback" style="width: 100%;">
+              Nom d'utilisateur valide est requis.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email <span class="text-muted">(Optionnel)</span></label>
+          <input type="email" class="form-control" id="email" placeholder="tonmail@exemple.com">
+          <div class="invalid-feedback">
+            Veuillez saisir une adresse e-mail valide
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address">Addresse</label>
+          <input type="text" class="form-control" id="address" placeholder="12 rue du bigorneau" required>
+          <div class="invalid-feedback">
+            Veuillez saisir une adresse valide
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="address2">Addresse 2 <span class="text-muted">(Optionnel)</span></label>
+          <input type="text" class="form-control" id="address2" placeholder="Appartement , étage">
+        </div>
+
+        <div class="row">
+          <div class="col-md-5 mb-3">
+            <label for="country">Pays</label>
+            <select class="custom-select d-block w-100" id="country" required>
+              <option value="">Choix...</option>
+              <option>France</option>
+              <option>Etats-Unis</option>
+              <option>Lettonie</option>
+              <option>Wallis et Futuna</option>
+              <option>Laos</option>
+              <option>Lesotho</option>
+              <option>Burkina Faso</option>
+            </select>
+            <div class="invalid-feedback">
+                Veuillez saisir un pays valide.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="state">Ville</label>
+            <select class="custom-select d-block w-100" id="state" required>
+              <option value="">Choix...</option>
+              <option>Nevers</option>
+              <option>Paris</option>
+              <option>Ouagadougou</option>
+              <option>Cherbourg</option>
+            </select>
+            <div class="invalid-feedback">
+              Veuillez saisir une ville valide.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="zip">Code postal</label>
+            <input type="text" class="form-control" id="zip" placeholder="" required>
+            <div class="invalid-feedback">
+                Veuillez saisir un code postal.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="same-address">
+          <label class="custom-control-label" for="same-address">L'adresse de livraison est la même que mon adresse de facturation</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="save-info">
+          <label class="custom-control-label" for="save-info">Enregistrez ces informations pour la prochaine fois</label>
+        </div>
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Paiement</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+            <label class="custom-control-label" for="credit">Carte de crédit</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="debit">Carte débit</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+            <label class="custom-control-label" for="paypal">PayPal</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Nom sur la carte</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <small class="text-muted">Nom complet tel qu'affiché sur la carte</small>
+            <div class="invalid-feedback">
+              Nom de la carte de crédit est requis.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Numéro de carte de crédit</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <div class="invalid-feedback">
+                Le numéro de carte de crédit est requis.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Expiration</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+            <div class="invalid-feedback">
+              Date d'expiration requise.
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+            <div class="invalid-feedback">
+              Code de securité requis.
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <a class="btn btn-warning btn-lg btn-block" href="https://s1.lprs1.fr/images/2017/11/04/7371897_picsou-bain-d-or.jpg" role="button">Payer !</a>
+        <br></form>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="form-validation.js"></script></body>
+</html>
+
+{% endblock %}

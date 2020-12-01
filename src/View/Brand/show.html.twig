@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/edit.css">{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="col-md-12">
+        <div class="card m-auto ">
+            <div class="card-body ">
+                <a href="/brand/index" class="pull-right exit"><i class="fas fa-times-circle"></i></a><br>
+                <p class="card-text">#{{brand.id}}</p> 
+                <h5 class="card-title text-center brand">{{ brand.name }}</h5> 
+            </div>
+            <div class="card-footer text-center">
+                <a href="/brand/edit/{{ brand.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+                <a href="/brand/delete/{{ brand.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a>                
+            </div>
+        </div>  
+    </div>
+</div>
+    
+
+{% endblock %}
